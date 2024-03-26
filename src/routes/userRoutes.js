@@ -1,14 +1,16 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Router } from 'express';
 import userController from '../controllers/UserController';
+import loginRequired from '../middlewares/loginRequired';
 
 const router = new Router();
 
+// router.get('/', loginRequired, userController.index); // Lista usuarios
+// router.get('/:id', loginRequired, userController.show); // lista usuario
+
 router.post('/', userController.store);
-router.get('/', userController.index);
-router.get('/:id', userController.show);
-router.put('/:id', userController.update);
-router.delete('/:id', userController.delete);
+router.put('/', loginRequired, userController.update);
+router.delete('/', loginRequired, userController.delete);
 
 export default router;
 

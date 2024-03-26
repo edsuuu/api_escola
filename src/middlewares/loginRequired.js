@@ -1,19 +1,26 @@
 /* eslint-disable spaced-comment */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import jwt from 'jsonwebtoken';
+import User from '../models/User';
 
-export default (req, res, next) => {
+export default async (req, res, next) => {
   const { authorization } = req.headers;
 
   if (!authorization) {
     return res.status(401).json({ errors: ['Login Required'] });
   }
 
-  const [, token] = authorization.split(' '); //mandar a string vazia ou assim 'Bearer '
+  const [, token] = authorization.split('Bearer '); //mandar a string vazia ou assim 'Bearer '
 
   try {
     const dados = jwt.verify(token, process.env.TOKEN_SECRET);
     const { id, email } = dados;
+
+    const user = await User.findOne({ where: { id, email } });
+
+    if (!user) {
+      return res.status(401).json({ errors: ['Usuário inválido'] });
+    }
 
     req.userId = id;
     req.userEmail = email;
