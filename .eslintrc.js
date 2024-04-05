@@ -27,5 +27,6 @@ module.exports = {
     'import/first': 'off',
     'eslintimport/no-extraneous-dependencies': 'off',
     'no-param-reassign': 'off',
+    camelcase: 'off',
   },
 };
