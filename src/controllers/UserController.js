@@ -17,8 +17,6 @@ class UserController {
   async index(req, res) {
     try {
       const users = await User.findAll({ attributes: ['id', 'nome', 'email'] });
-      console.log(req.userId);
-      console.log(req.userEmail);
 
       return res.json(users);
     } catch (e) {
@@ -39,7 +37,6 @@ class UserController {
 
   async update(req, res) {
     try {
-      console.log(req.userId);// recebendo o id
       if (!req.userId) {
         return res.status(400).json({
           errors: ['ID não enviado'],
@@ -67,7 +64,6 @@ class UserController {
 
   async delete(req, res) {
     try {
-      console.log('Usuario logado é o id ', req.userId);// recebendo o id
       if (!req.userId) {
         return res.status(400).json({
           errors: ['ID não enviado'],
