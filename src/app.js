@@ -17,7 +17,8 @@ import tokenRoutes from './routes/tokenRoutes';
 import alunoRoutes from './routes/alunoRoutes';
 import fotoRoutes from './routes/fotoRoutes';
 
-const whitelist = ['*'];
+// CONFIGURAÇÃO DOS CORS DA APLICAÇÃO, LINKS DA WHITELIST QUIE PODE MANDAR REQ
+const whitelist = ['http://localhost:3000'];
 
 const corsOptions = {
   origin: (origin, callback) => {

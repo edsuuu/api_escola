@@ -1,3 +1,5 @@
+// URL para imagens, alterar caso for hospedar
+
 export default {
-  url: 'http://192.168.0.84:3001',
+  url: 'http://localhost:3001',
 };
