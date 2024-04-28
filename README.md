@@ -7,6 +7,7 @@
 ## <a href="https://api-study.ddns.net/" target="_blank">Deploy da API</a>
 
 ## <a href="https://front-escola.ddns.net/" target="_blank">Deploy do FrontEnd</a>
+## <a href="https://github.com/edsuuu/front-escola" target="_blank">Repositorio do FrontEnd</a>
 
 # Tecnologias Ultilizadas
 
