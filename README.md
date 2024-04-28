@@ -52,7 +52,8 @@
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
     }
 ```
-- Mandar no corpo da req "Bearer Token"
+
+- Mandar na header de cada req "Bearer Token"
 
 ### Editar dados do User & DELETAR
 
@@ -70,24 +71,102 @@
 
 ## DELETE - /users
 
-- Mandar no corpo da req "Bearer Token"
+- Mandar na header de cada req "Bearer Token"
 
+### Alunos
 
-#
+- Criação de alunos
 
-### Alunos & Fotos do Aluno
+## POST - /alunos
 
+```bash
+    {
+      "nome": "Aluno",
+      "sobrenome": "teste",
+      "email": "aluno@aluno.com",
+      "idade": "14",
+      "peso": "58",
+      "altura": "1.70"
+    }
+```
 
+### Listar todos alunos
 
+## GET - /alunos
 
+```bash
+[
+	{
+		"id": 17,
+		"nome": "Aluno1",
+		"sobrenome": "teste1",
+		"email": "aluno1@aluno.com",
+		"idade": 14,
+		"peso": 58,
+		"altura": 1.7,
+		"Fotos": []
+	},
+	{
+		"id": 19,
+		"nome": "Aluno",
+		"sobrenome": "teste",
+		"email": "aluno@aluno.com",
+		"idade": 14,
+		"peso": 58,
+		"altura": 1.7,
+		"Fotos": []
+	}
+]
+```
 
+### Listar um aluno
 
+## GET - /alunos/:id
 
+```bash
+[
+  {
+    "id": 17,
+    "nome": "Aluno1",
+    "sobrenome": "teste1",
+    "email": "aluno1@aluno.com",
+    "idade": 14,
+    "peso": 58,
+    "altura": 1.7,
+    "Fotos": []
+  }
+]
+```
 
+### Editar um aluno
 
+## PUT - /alunos/:id
 
+```bash
+	{
+		"nome": "aluno",
+		"sobrenome": "teste"
+	}
+```
+### Deletar um aluno
 
+## DELETE - /alunos/:id
 
+- Resposta
+
+```bash
+	{
+    "Aluno deletado"
+  }
+```
+
+### Cadastrar Foto do Aluno
+
+## POST - /fotos
+
+- Mandar um formulário MULTIPART
+
+<img src="./uploads/images/MULTIPART.png" width="100%" height="auto" >
 
 
 # Ultilização do projeto
@@ -112,7 +191,7 @@ npm install
 
 ### Configurar as variáveis de ambiente .env
 
- - Se estiver usando o linux
+- Se estiver usando o linux
 
 ```bash
 sudo nano .env
